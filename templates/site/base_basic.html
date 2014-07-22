@@ -1,0 +1,33 @@
+{% extends "site/base.html" %}
+
+{% block page_title %}
+    {% if title %}
+    {{ title }}
+    {% else %}
+    Index
+    {% endif %}
+{% endblock page_title %}
+
+{% block style %}
+    {% if styles %}
+        {% for style in styles %}
+            <link type="text/css" rel="stylesheet" href="{{ style }}">
+        {% endfor %}
+    {% endif %}
+{% endblock style %}
+
+{% block script %}
+    {% if scripts %}
+        {% for script in scripts %}
+            <script type="text/javascript" language="javascript" src="{{ script }}"></script>
+        {% endfor %}
+    {% endif %}
+{% endblock script %}
+
+{% block meta %}
+    {% if metas %}
+        {% for meta in metas %}
+            <meta{% for key, value in meta.items() recursive %} {{ key }}="{{ value }}"{% endfor %}>
+        {% endfor %}
+    {% endif %}
+{% endblock meta %}
