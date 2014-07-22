@@ -19,7 +19,11 @@ metas = [{"description" : "Space, the Timesheet management system"}]
 
 @app.route('/')
 def index():
-    return render_template('site/base_basic.html', scripts=scripts, metas=metas, styles=styles)
+    return render_template('site/base/base_basic.html', scripts=scripts, metas=metas, styles=styles)
+
+@app.route('/login')
+def login():
+    return render_template('site/login/login.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
