@@ -1,15 +1,13 @@
-from flask import Flask
+from app import Flask
 from flask import render_template
 
 from jinja2 import Environment, PackageLoader
 
-class Flask(Flask):
-    jinja_options = dict(trim_blocks = True, lstrip_blocks = True)
-
 app = Flask(__name__)
+app.config.from_object('config.development.Config')
 
 # Default script files
-scripts = ['anus.js']
+scripts = ['titt.js']
 
 # Default stylesheets
 styles = ['anus.css']
