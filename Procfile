@@ -1,1 +1,1 @@
-web: space main:app --log-file=log.txt
+web: gunicorn main:app --log-file=-
