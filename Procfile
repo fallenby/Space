@@ -1,1 +1,1 @@
-web: space main:app --log-file=-
+web: space main:app --log-file=log.txt
