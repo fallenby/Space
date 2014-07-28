@@ -1,0 +1,33 @@
+{%- macro link(href, type='text/css', rel='stylesheet') %}
+    <link type="{{ type }}" rel="{{ rel }}" href="{{ href }}" />
+{%- endmacro %}
+
+{%- macro script(src, type='text/javascript', language='javascript') %}
+    <script type="{{ type }}" language="{{ language }}" src="{{ src }}"></script>
+{%- endmacro %}
+
+{%- macro inline_script(script, type='text/javascript', language='javascript') %}
+    <script type="{{ type }}" language="{{ language }}">{{ script }}</script>
+{%- endmacro %}
+
+{%- macro meta(attributes) %}
+    <meta{% for key, value in attributes.items() recursive %} {{ key }}="{{ value }}"{% endfor %}>
+{%- endmacro %}
+
+{%- macro style_list(styles, type='text/css', rel='stylesheet') %}
+    {% for item in styles %}
+        {{ link(item) }}
+    {% endfor %}
+{%- endmacro %}
+
+{%- macro script_list(scripts, type='text/javascript', language='javascript') %}
+    {% for item in scripts %}
+        {{ script(item) }}
+    {% endfor %}
+{%- endmacro %}
+
+{%- macro meta_list(metas) %}
+    {% for item in metas %}
+        {{ meta(item) }}
+    {% endfor %}
+{% endmacro %}

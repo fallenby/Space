@@ -1,4 +1,5 @@
 {% extends "site/base/base.html" %}
+{% import "helper/form.html" as form %}
 
 {% block page_title %}
     {% if title %}
@@ -9,25 +10,17 @@
 {% endblock page_title %}
 
 {% block style %}
-    {% if styles %}
-        {% for style in styles %}
-            <link type="text/css" rel="stylesheet" href="{{ style }}">
-        {% endfor %}
-    {% endif %}
+    {% set _local_styles = ["static/style/base.css"] %}
+    {{ form.style_list(_local_styles) }}
 {% endblock style %}
 
 {% block script %}
-    {% if scripts %}
-        {% for script in scripts %}
-            <script type="text/javascript" language="javascript" src="{{ script }}"></script>
-        {% endfor %}
-    {% endif %}
+    {% set _local_scripts = ["static/script/base.js"] %}
+    {{ form.script_list(_local_scripts) }}
 {% endblock script %}
 
 {% block meta %}
     {% if metas %}
-        {% for meta in metas %}
-            <meta{% for key, value in meta.items() recursive %} {{ key }}="{{ value }}"{% endfor %}>
-        {% endfor %}
+        {{ form.meta_list(metas) }}
     {% endif %}
 {% endblock meta %}
